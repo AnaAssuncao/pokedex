@@ -1,0 +1,106 @@
+*{
+  padding:0;
+  margin:0;
+}
+
+nav {
+  padding: 30px;
+}
+
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
+}
+
+
+:root{
+  --white: #fff;
+  --black:#000;
+  --background: #f2f3f5;
+  --gray: #dcdde0;
+  --text: #666666;
+  --textHighlight: #3b3b9ff;
+  --title: #2e384d;
+  --red: #e83f5b;
+  --green: #4cd62b;
+  --blue: #5965e0;
+  --blueDark: #4953b8;
+  --blueTwitter: #2aa9e0;
+  --pokemon-normal: #bfa681;
+  --pokemon-fire: #edb58b;
+  --pokemon-water: #6390F0;
+  --pokemon-electric: #e9d738;
+  --pokemon-grass: #7AC74C;
+  --pokemon-ice: #96D9D6;
+  --pokemon-fighting: #C22E28;
+  --pokemon-poison: #e9bfe8;
+  --pokemon-ground: #E2BF65;
+  --pokemon-flying: #A98FF3;
+  --pokemon-psychic: #F95587;
+  --pokemon-bug: #A6B91A;
+  --pokemon-rock: #B6A136;
+  --pokemon-ghost: #735797;
+  --pokemon-dragon: #6F35FC;
+  --pokemon-dark: #705746;
+  --pokemon-steel: #B7B7CE;
+  --pokemon-fairy: #D685AD;
+  }
+
+.pokemon-normal{
+  background-color: var(--pokemon-normal);
+}
+.pokemon-fire{
+  background-color: var(--pokemon-fire);
+}
+.pokemon-water{
+  background-color: var(--pokemon-water);
+}
+.pokemon-electric{
+  background-color: var(--pokemon-electric);
+}
+.pokemon-grass{
+  background-color: var(--pokemon-grass);
+}
+.pokemon-ice{
+  background-color: var(--pokemon-ice);
+}
+.pokemon-fighting{
+  background-color: var(--pokemon-fighting);
+}
+.pokemon-poison{
+  background-color: var(--pokemon-poison);
+}
+.pokemon-ground{
+  background-color: var(--pokemon-ground);
+}
+.pokemon-flying{
+  background-color: var(--pokemon-flying);
+}
+.pokemon-psychic{
+  background-color: var(--pokemon-psychic);
+}
+.pokemon-bug{
+  background-color: var(--pokemon-bug);
+}
+.pokemon-rock{
+  background-color: var(--pokemon-rock);
+}
+.pokemon-ghost{
+  background-color: var(--pokemon-ghost);
+}
+.pokemon-dragon{
+  background-color: var(--pokemon-dragon);
+}
+.pokemon-dark{
+  background-color: var(--pokemon-dark);
+}
+.pokemon-steel{
+  background-color: var(--pokemon-steel);
+}
+.pokemon-fairy{
+  background-color: var(--pokemon-steel);
+}

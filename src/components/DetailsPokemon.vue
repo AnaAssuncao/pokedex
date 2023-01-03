@@ -1,7 +1,7 @@
 <template>
       <div class="ModalMask" @click="$emit('onCloseDetails')">
       <div class="Container">
-        <div class="Content">
+        <div class="Content" v-if="pokemon.type">
           <div class="Banner" :class="'pokemon-'+ pokemon.type" >
             <div class="Title">{{namePokemon.toUpperCase()}}</div>
             <img class="Image" :src="pokemon.img"/>
@@ -63,6 +63,20 @@
             <button class="BackButton" :class="'pokemon-'+ pokemon.type" @click="$emit('onCloseDetails')" >Voltar</button >
           </div >
         </div >
+
+        <div class="Content ContentErro" v-if="erro">
+          <p class="Title">
+            {{ erro }}
+          </p>
+          <br>
+          <p class="Title">
+            Tente novamente!
+          </p>
+          <br>
+          <div class="ContainerButton">
+            <button class="BackButton pokemon-dark" @click="$emit('onCloseDetails')" >Voltar</button >
+          </div >
+        </div>
       </div >
     </div >
 </template>
@@ -75,21 +89,24 @@ export default {
     namePokemon: String
   },
   data(){
-    getPokemonDetail(this.namePokemon).then(response=>{
-      this.pokemon =response
-    }).catch((e)=>{console.log(e)})
-
+      getPokemonDetail(this.namePokemon).then(response=>{
+        this.pokemon =response
+      }).catch((e)=>{
+        this.erro=`Infelizmente não encontramos o pokémon ${this.namePokemon}!`
+        console.log(e)
+      })
       return {
         pokemon: {
           img: '/'
         },
+        erro:''
       }
     }  
 }
 
 </script>
 
-<style>
+<style scoped>
 .ModalMask{
   height: 100%;
   overflow-x: hidden;
@@ -124,6 +141,9 @@ export default {
   display: none;
 }
 
+.ContentErro{
+  height: fit-content;
+}
 
 .Banner {
   align-items: center;
@@ -141,28 +161,13 @@ export default {
 }
 
 .Title {
-  color: #fff;
-  font-size:1.5rem;
+  font-size:20px;
   font-weight: 800;
-  line-height: 1.3;
+  line-height: 1.4;
   text-align: center;
+  margin-top:24px;
 }
 
-.CloseModal {
-  line-height: 1.5;
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
-  padding: 0 25px;
-  cursor: pointer;}
-
-.CloseModal > svg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-}
 
 .Details  {
   display: flex;

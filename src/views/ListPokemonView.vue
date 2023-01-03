@@ -1,5 +1,7 @@
 <template>
   <div class="container">
+    <search-pokemon @onSearchPokemon="handleOpenDetails" ></search-pokemon>
+    
     <ul class="list">
       <li class="item" 
         v-for="pokemon in pokemonList" 
@@ -20,7 +22,7 @@
     </ul>
 
     <div>
-      <DetailsPokemon @onCloseDetails="handleCloseDetails" v-if="isOpenDetails" :namePokemon="namePokemon"></DetailsPokemon>    
+      <details-pokemon @onCloseDetails="handleCloseDetails" v-if="isOpenDetails" :namePokemon="namePokemon"></details-pokemon>    
     </div>
 
     <div class="list-button">
@@ -45,6 +47,7 @@
 <script>
 import DetailsPokemon from '@/components/DetailsPokemon.vue'
 import {getPokemonList} from '../util/getPokemon'
+import SearchPokemon from '@/components/SearchPokemon.vue'
 
 export default {
     name: "list-pokedex",
@@ -65,8 +68,10 @@ export default {
             this.handlePokemonList(newNumberPage)
         },
         handleOpenDetails(namePokemon){
-          this.isOpenDetails=true
-          this.namePokemon=namePokemon
+          if(namePokemon){
+            this.isOpenDetails=true
+            this.namePokemon=namePokemon
+          }
         },
         handleCloseDetails(){
           this.isOpenDetails=false
@@ -80,7 +85,7 @@ export default {
          }).catch((e)=>{console.log(e)})
         }
     },
-    components: { DetailsPokemon }
+    components: { DetailsPokemon,SearchPokemon }
 }
 </script>
 

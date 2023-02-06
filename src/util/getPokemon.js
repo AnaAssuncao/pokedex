@@ -1,5 +1,6 @@
 export async function getPokemonDetail(namePokemon){
-  const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${namePokemon}`)
+  const name = namePokemon.toLowerCase()
+  const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
   const detail = await response.json()
   const pokemon ={
     name: detail.name,
